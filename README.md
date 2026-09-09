@@ -29,7 +29,7 @@ as a secondary (non-quantum) finding.
 
 ## How it works
 
-Static analysis via Python's `ast` module — not regex. The scanner:
+Static analysis via Python's `ast` module, not regex. The scanner:
 
 1. Parses each `.py` file into an AST.
 2. Builds a table of import aliases so renamed imports still resolve
@@ -61,7 +61,7 @@ python3 scan.py ../test_fixtures --json ../reports/test_report.json
   positives on the negative control).
 - Also validated against the real `pyca/cryptography` library's own
   test suite (a production Python codebase that legitimately
-  generates RSA/EC/DH keys) — correctly surfaced 112 findings across
+  generates RSA/EC/DH keys): correctly surfaced 112 findings across
   11 files with no crashes. Not included in this repo due to size;
   reproduce with:
   ```bash
