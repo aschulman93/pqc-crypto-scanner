@@ -1,0 +1,74 @@
+[
+  {
+    "file": "../test_fixtures/vulnerable_sample.py",
+    "line": 15,
+    "algorithm": "RSA",
+    "detail": "key_size=2048 [also undersized: below 3072-bit minimum]",
+    "severity": "High",
+    "reason": "RSA relies on integer factorization, which Shor's algorithm breaks in polynomial time on a sufficiently large quantum computer.",
+    "recommendation": "Migrate to ML-KEM (FIPS 203) for key exchange, or a hybrid RSA+ML-KEM scheme during the transition period."
+  },
+  {
+    "file": "../test_fixtures/vulnerable_sample.py",
+    "line": 21,
+    "algorithm": "RSA",
+    "detail": "key_size=4096",
+    "severity": "High",
+    "reason": "RSA relies on integer factorization, which Shor's algorithm breaks in polynomial time on a sufficiently large quantum computer.",
+    "recommendation": "Migrate to ML-KEM (FIPS 203) for key exchange, or a hybrid RSA+ML-KEM scheme during the transition period."
+  },
+  {
+    "file": "../test_fixtures/vulnerable_sample.py",
+    "line": 26,
+    "algorithm": "ECDSA/ECDH",
+    "detail": "key_size=unspecified/dynamic",
+    "severity": "High",
+    "reason": "Elliptic curve cryptography relies on the discrete log problem, which is also broken by Shor's algorithm.",
+    "recommendation": "Migrate signatures to ML-DSA (FIPS 204) or SLH-DSA (FIPS 205); migrate key exchange to ML-KEM (FIPS 203)."
+  },
+  {
+    "file": "../test_fixtures/vulnerable_sample.py",
+    "line": 31,
+    "algorithm": "Diffie-Hellman",
+    "detail": "key_size=2048",
+    "severity": "High",
+    "reason": "Classical DH key exchange is broken by Shor's algorithm in the same way as RSA.",
+    "recommendation": "Migrate to ML-KEM (FIPS 203) for key establishment."
+  },
+  {
+    "file": "../test_fixtures/vulnerable_sample.py",
+    "line": 37,
+    "algorithm": "Weak hash (md5)",
+    "detail": "",
+    "severity": "Medium",
+    "reason": "MD5 is cryptographically broken (collision attacks) and should not be used for signing or integrity verification.",
+    "recommendation": "Use SHA-256 or SHA-3 family. Not quantum-specific, but worth remediating alongside PQC migration."
+  },
+  {
+    "file": "../test_fixtures/vulnerable_sample.py",
+    "line": 41,
+    "algorithm": "Weak hash (sha1)",
+    "detail": "",
+    "severity": "Medium",
+    "reason": "SHA-1 is deprecated for signing/certificates due to practical collision attacks.",
+    "recommendation": "Use SHA-256 or SHA-3 family. Not quantum-specific, but worth remediating alongside PQC migration."
+  },
+  {
+    "file": "../test_fixtures/pycryptodome_sample.py",
+    "line": 11,
+    "algorithm": "RSA",
+    "detail": "key_size=2048 [also undersized: below 3072-bit minimum]",
+    "severity": "High",
+    "reason": "RSA relies on integer factorization, which Shor's algorithm breaks in polynomial time on a sufficiently large quantum computer.",
+    "recommendation": "Migrate to ML-KEM (FIPS 203) for key exchange, or a hybrid RSA+ML-KEM scheme during the transition period."
+  },
+  {
+    "file": "../test_fixtures/pycryptodome_sample.py",
+    "line": 16,
+    "algorithm": "ECDSA/ECDH",
+    "detail": "key_size=unspecified/dynamic",
+    "severity": "High",
+    "reason": "Elliptic curve cryptography relies on the discrete log problem, which is also broken by Shor's algorithm.",
+    "recommendation": "Migrate signatures to ML-DSA (FIPS 204) or SLH-DSA (FIPS 205); migrate key exchange to ML-KEM (FIPS 203)."
+  }
+]
