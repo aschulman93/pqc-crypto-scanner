@@ -71,7 +71,7 @@ python3 scan.py ../test_fixtures --json ../reports/test_report.json
 
 ## Current scope / honest limitations
 
-This is a v1 static scanner, built as a portfolio/learning project —
+This is a v1 static scanner built as a portfolio/learning project,
 not a production security tool. Known limitations:
 
 - **Python only.** No support yet for other languages, binaries, or
